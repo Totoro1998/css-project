@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      :root {
+        --font-color: red;
+      }
+      .container {
+        color: var(--font-color);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">我是字体</div>
+    <a-button onclick="change_color()">修改字体颜色</a-button>
+    <script>
+      const change_color = () => {
+        const container = document.getElementsByClassName("container")[0];
+        var styles = getComputedStyle(container);
+        var font_color = styles.getPropertyValue("--font-color");
+        console.log(String(font_color).trim());
+        container.style.setProperty("--font-color", "blue");
+      };
+    </script>
+  </body>
+</html>
